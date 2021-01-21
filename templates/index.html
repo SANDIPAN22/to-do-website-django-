@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <title>TODO SITE</title>
+</head>
+<body>
+    <div class="hd">
+        <h1>TO-DO LIST WEBSITE</h1>
+        <form  method="post">
+            {{addForm.title}}
+            {%csrf_token%}
+            <input type="submit" value="ADD TASK !">
+        </form>
+        <hr>
+    </div>
+    <div class="container">
+        {%  if result %}
+        <h4 style="text-align: center;">THE AVAILABLE TASKS ARE</h4>
+        {% for r in result%}
+        {% if r.completed == True%}
+        <div class="task" style="background-color: green;" >
+          
+        <p > <h2 >{{r}}</h2></p> 
+        
+        <p ><a href="{% url 'updateTask' r.id%}">UPDATE ME</a></p>
+        <p ><a href="{% url 'deleteTask' r.id%}">DELETE ME</a></p>
+        </div>
+        {% else %}
+        <div class="task" >
+          
+        <p> <h2>{{r}}</h2></p> 
+        <p ><a href="{% url 'updateTask' r.id%}">UPDATE ME</a></p>
+        <p ><a href="{% url 'deleteTask' r.id%}">DELETE ME</a></p>
+        <hr>
+        {% endif %}
+        </div>
+        {%endfor%}
+        {% else %}
+        <h3> NO TASK LEFT TO DO </h3>
+        {%endif %}
+    </div>
+</body>
+</html>
+<script >
+//     var t= document.querySelectorAll('.task');
+// for (var i =0;i< t.length;i++)
+// {
+//  t[i].addEventListener('click',function(){alert('heyyy');}); 
+
+// }
+
+function updateMe(x)
+{
+alert("x");
+}
+    </script>

@@ -1,0 +1,21 @@
+body{
+    background-color: #e4c3fa;
+}
+.hd{
+    text-align: center;
+}
+/* .container{
+    height: 20%;
+    width: 20%;
+    margin: auto;
+    background-color: rgb(12, 236, 236);
+    border: solid rgb(192, 245, 245);
+   
+    
+
+} */
+.task{
+    background-color: #892cdc;
+    box-shadow: 2px 2px 12px black;
+    text-align: center;
+}
